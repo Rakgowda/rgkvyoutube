@@ -33,7 +33,7 @@ let style;
    
     let lin = this.props.counter.snippet;
     console.log(lin.resourceId.videoId);
-    const r = "https://www.youtube.com/embed/"+lin.resourceId.videoId;
+    const r = "https://www.youtube.com/embed/"+lin.resourceId.videoId+"?rel=0";
     const rr = "https://www.youtube.com/watch/"+lin.resourceId.videoId;
 
     console.log(r);
