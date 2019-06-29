@@ -10,7 +10,6 @@ class Counters extends Component {
         
         <div>
             <br/><br/>
-           {/* <button className="btn btn-primary m2" onClick={this.props.reset}> Reset</button> */}
             {this.props.counterr.map(e=><Counter key={e.id} counter={e}>
            
             </Counter>)}

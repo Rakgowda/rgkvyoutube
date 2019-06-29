@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import $ from "jquery"
+import Skeleton from 'react-loading-skeleton';
 class Counter extends Component {
     
     // constructor(){
     //   super();
     //   this.c=this.c.bind(this)
     // }
-    renderTag(){
-      return this.state.nmae.length===0?<p>no elemnt</p>: <ul>{this.state.nmae.map(t=><li key={t}>{t}</li>)}</ul>;
-    }
+ 
   render() {
 let style;
     if (window.innerWidth > 600) {
@@ -19,6 +18,7 @@ let style;
         "margin-bottom": "10px" 
  
       }
+      let sy=500
     } else {
        style = {
         width:"400px",
@@ -27,21 +27,36 @@ let style;
         float: "none", 
         "margin-bottom": "10px" 
       }
+      let sy=100
     }
     
-
    
+     
+    if(this.props.counter =="error" || this.props.counter=="")
+    {
+      return (
+   
+  <div>
+    <div style={style}>
+    <Skeleton width={400} height={400} />
+    </div>
+<div className="card-body">
+<h4 className="card-title text-dark"><Skeleton count={1} /></h4>
+<br/>
+<p className="card-text text-dark"><Skeleton count={1} /></p>
+<br/>
+<a className="btn btn-danger"target='_blank'>YouTube link</a>
+</div>
+</div>
+      )
+    } 
+   else{
     let lin = this.props.counter.snippet;
     console.log(lin.resourceId.videoId);
     const r = "https://www.youtube.com/embed/"+lin.resourceId.videoId+"?rel=0";
     const rr = "https://www.youtube.com/watch/"+lin.resourceId.videoId;
 
-    console.log(r);
 
-
-     
-
-   
     return (
 
       <React.Fragment>
@@ -55,6 +70,8 @@ let style;
 </div>
       </React.Fragment>
     );
+   }
+    
 
   }
   newMethod() {

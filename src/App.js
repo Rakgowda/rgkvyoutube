@@ -5,8 +5,9 @@ import Counters from './components/counters'
 import Navbar from "./components/navbar"
 import React, { Component } from 'react';
 
-import $ from 'jquery'
 
+import $ from 'jquery'
+import axios from "axios"
 class App extends Component {
   state = {  
     counterr:[]
@@ -36,15 +37,18 @@ reset=()=>{
 }
 
 componentDidMount(){
- 
-  $.get( "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=UUnw-TdFO6KgTWTxBatPWDMw&key=AIzaSyDqnf8FL1kPg2MNRPySnf54fJaU-8W_zz0", (data)=> {
- 
-    const counterr = data.items
-  this.setState({counterr:[...counterr]})
-  console.log(this.state);
-   
 
-  });
+  axios.get("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=UUnw-TdFO6KgTWTxBatPWDMw&key=AIzaSyDqnf8FL1kPg2MNRPySnf54fJaU-8W_zz0")
+  .then((res)=>{
+    console.log(res.data.items);
+    const counterr = res.data.items
+    this.setState({counterr:[...counterr]})
+    console.log(this.state);
+  })
+  .catch(err=>{
+    const counterr = ["error"]
+    this.setState({counterr:[...counterr]})
+  })
 }
 render() { 
   return ( 
