@@ -10,15 +10,25 @@ class Counter extends Component {
       return this.state.nmae.length===0?<p>no elemnt</p>: <ul>{this.state.nmae.map(t=><li key={t}>{t}</li>)}</ul>;
     }
   render() {
-
-    let style = {
-      width:"1000px",
-      margin: "0 auto",
-      float: "none", 
-      "margin-bottom": "10px" 
-
-      
+let style;
+    if (window.innerWidth > 600) {
+       style = {
+        width:"1000px",
+        margin: "0 auto",
+        float: "none", 
+        "margin-bottom": "10px" 
+ 
+      }
+    } else {
+       style = {
+        width:"400px",
+        height:"400px",
+        margin: "0 auto",
+        float: "none", 
+        "margin-bottom": "10px" 
+      }
     }
+    
 
    
     let lin = this.props.counter.snippet;
