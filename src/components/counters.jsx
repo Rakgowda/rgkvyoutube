@@ -6,8 +6,10 @@ class Counters extends Component {
     
     render() { 
         console.log(this.props.counterr);
-        return ( <div>
-            
+        return ( 
+        
+        <div>
+            <br/><br/>
            {/* <button className="btn btn-primary m2" onClick={this.props.reset}> Reset</button> */}
             {this.props.counterr.map(e=><Counter key={e.id} counter={e}>
            
