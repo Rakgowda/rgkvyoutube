@@ -3,16 +3,30 @@ import "../../node_modules/jquery/dist/jquery.min.js";
 import "../../node_modules/bootstrap/dist/js/bootstrap.bundle.min";
 
 class Navbar extends Component {
-     style = {
-      color:"red"
-    }
+   
+   
+    
+
 
     render() { 
+      let style;
+    if (window.innerWidth > 600) {
+      style = {
+        fontSize:"20px" 
+ 
+      }
+    
+    } else {
+      style = {
+        fontSize:"11px"
+      }
+      
+    }
         return ( 
         
           
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-           <a class="navbar-brand" href="#"><i className="fa fa-youtube m-2" style={this.style}></i>RGKV TECH CHANNEL <span className="badge badge-pill badge-warning">Subscribers {this.props.subcriber}</span></a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+           <a class="navbar-brand" style={style}><i className="fa fa-youtube m-2" style={{color:"red"}}></i>RGKV TECH CHANNEL <span className="badge badge-pill badge-warning" style={{fontSize:"10px"}}>Subscribers {this.props.subcriber}</span></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
