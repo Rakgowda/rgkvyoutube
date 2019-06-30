@@ -10,7 +10,8 @@ import $ from 'jquery'
 import axios from "axios"
 class App extends Component {
   state = {  
-    counterr:[]
+    counterr:[],
+    subcriber:0,
 }
 constructor(){
   super();
@@ -44,16 +45,31 @@ componentDidMount(){
     const counterr = res.data.items
     this.setState({counterr:[...counterr]})
     console.log(this.state);
+    axios.get("https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UCnw-TdFO6KgTWTxBatPWDMw&key=AIzaSyDqnf8FL1kPg2MNRPySnf54fJaU-8W_zz0")
+    .then((res)=>{
+      console.log(res.data.items[0].statistics.subscriberCount);
+      const subcriber = res.data.items[0].statistics.subscriberCount;
+      this.setState({subcriber:subcriber})
+      console.log(this.state);
+    })
+    .catch(err=>{
+      console.log(err);
+      const subcriber = ["error"]
+      this.setState({subcriber:[...subcriber]})
+    })
   })
   .catch(err=>{
     const counterr = ["error"]
     this.setState({counterr:[...counterr]})
   })
+
+ 
+  
 }
 render() { 
   return ( 
     <React.Fragment>
-      <Navbar></Navbar>
+      <Navbar subcriber={this.state.subcriber}></Navbar>
       <Counters counterr={this.state.counterr}></Counters>
     </React.Fragment>
   );

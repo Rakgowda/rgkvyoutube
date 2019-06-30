@@ -6,12 +6,13 @@ class Navbar extends Component {
      style = {
       color:"red"
     }
+
     render() { 
         return ( 
         
           
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-           <a class="navbar-brand" href="#"><i className="fa fa-youtube m-2" style={this.style}></i>RGKV TECH CHANNEL</a>
+           <a class="navbar-brand" href="#"><i className="fa fa-youtube m-2" style={this.style}></i>RGKV TECH CHANNEL <span className="badge badge-pill badge-warning">Subscribers {this.props.subcriber}</span></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
