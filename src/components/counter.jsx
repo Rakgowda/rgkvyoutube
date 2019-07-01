@@ -61,7 +61,7 @@ let style;
 
       <React.Fragment>
        <div className="card ml-10" style={style}>
-       <iframe id="vid" src={r} className="embed-responsive-item" style={{height:"500px"}} allowFullScreen></iframe>
+       <iframe id="vid" src={r || <Skeleton />} className="embed-responsive-item" style={{height:"500px"}} allowFullScreen></iframe>
   <div className="card-body">
     <h4 className="card-title text-dark">RGKV TECH CHANNEL <span className="text text-primary">#kannada</span></h4>
     <p className="card-text text-dark">{this.props.counter.snippet.title}</p>

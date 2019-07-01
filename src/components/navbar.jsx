@@ -4,7 +4,14 @@ import "../../node_modules/bootstrap/dist/js/bootstrap.bundle.min";
 
 class Navbar extends Component {
    
-   
+  constructor(){
+    super();
+    
+  }
+
+  handleChange=(event)=>{
+    this.props.searchdata(event.target.value);
+  }
     
 
 
@@ -22,6 +29,7 @@ class Navbar extends Component {
       }
       
     }
+     
         return ( 
         
           
@@ -39,7 +47,7 @@ class Navbar extends Component {
       
     </ul>
     <form class="form-inline my-2 my-lg-0">
-    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onChange={this.handleChange}/>
               <button className="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
               </form>
   </div>

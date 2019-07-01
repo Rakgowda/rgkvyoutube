@@ -12,14 +12,26 @@ class App extends Component {
   state = {  
     counterr:[],
     subcriber:0,
+    copycounter:[]
 }
 constructor(){
   super();
   
 }
-habdleDElete=(cid)=>{
-    let counnter = this.state.counterr.filter(e=> e.id != cid);
+habdleFilter=(cid)=>{
+
+  if(cid!="")
+  {
+    let counnter = this.state.counterr.filter(e=> e.snippet.title.toLowerCase().indexOf(cid) > -1);
     this.setState({counterr:counnter})
+    console.log("calling data"+cid);
+  }
+  else{
+    let counnter = this.state.copycounter;
+    this.setState({counterr:counnter})
+    console.log("calling data"+cid);
+  }
+    
     
     
 }
@@ -44,6 +56,8 @@ componentDidMount(){
     console.log(res.data.items);
     const counterr = res.data.items
     this.setState({counterr:[...counterr]})
+    this.setState({copycounter:[...counterr]})
+
     console.log(this.state);
     axios.get("https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UCnw-TdFO6KgTWTxBatPWDMw&key=AIzaSyDqnf8FL1kPg2MNRPySnf54fJaU-8W_zz0")
     .then((res)=>{
@@ -69,7 +83,7 @@ componentDidMount(){
 render() { 
   return ( 
     <React.Fragment>
-      <Navbar subcriber={this.state.subcriber}></Navbar>
+      <Navbar subcriber={this.state.subcriber} counterr={this.state.counterr} searchdata={this.habdleFilter}></Navbar>
       <Counters counterr={this.state.counterr}></Counters>
     </React.Fragment>
   );
