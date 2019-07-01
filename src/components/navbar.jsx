@@ -23,6 +23,12 @@ class Navbar extends Component {
     this.setState({inputt:event.target.value})
     
   }
+
+  redirect=()=>{
+    console.log("here");
+    this.props.searchdata("");
+
+  }
   handleSubmit(e){
     // alert('An essay was submitted: ' + this.state.value);
     e.preventDefault();
@@ -51,7 +57,8 @@ class Navbar extends Component {
         
           
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-           <a class="navbar-brand" style={style}><i className="fa fa-youtube m-2" style={{color:"red"}}></i>RGKV TECH CHANNEL <span className="badge badge-pill badge-warning" style={{fontSize:"10px"}}>Subscribers {this.props.subcriber}</span></a>
+               <a class="navbar-brand" style={style} onClick={this.redirect}><i className="fa fa-youtube m-2" style={{color:"red"}}></i>RGKV TECH CHANNEL <span className="badge badge-pill badge-warning" style={{fontSize:"10px"}}>Subscribers {this.props.subcriber}</span></a>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
