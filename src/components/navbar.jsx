@@ -4,16 +4,32 @@ import "../../node_modules/bootstrap/dist/js/bootstrap.bundle.min";
 
 class Navbar extends Component {
    
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
+    this.state = {inputt: ""};
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     
   }
 
-  handleChange=(event)=>{
+  state={
+    inputt:""
+  }
+  
+
+  handleChange(event){
     console.log("changing "+event.target.value);
     this.props.searchdata(event.target.value);
-  }
+    this.setState({inputt:event.target.value})
     
+  }
+  handleSubmit(e){
+    // alert('An essay was submitted: ' + this.state.value);
+    e.preventDefault();
+    console.log(this.state.inputt);
+    this.props.searchdata(this.state.inputt);
+
+  }
 
 
     render() { 
@@ -47,9 +63,9 @@ class Navbar extends Component {
       </li> */}
       
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onChange={this.handleChange}/>
-              <button className="btn btn-outline-danger my-2 my-sm-0" type="submit" onClick={this.handleChange}>Search</button>
+    <form class="form-inline my-2 my-lg-0" onSubmit={this.handleSubmit}>
+    <input className="form-control mr-sm-2" type="text" refs="s" placeholder="Search" aria-label="Search" onChange={this.handleChange}  />
+              <button className="btn btn-outline-danger my-2 my-sm-0" value="Submit" type="submit">Search</button>
               </form>
   </div>
 </nav>
