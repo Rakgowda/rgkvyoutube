@@ -31,8 +31,8 @@ let style;
     }
     
    
-     
-    if(this.props.counter =="error" || this.props.counter=="")
+     console.log(this.props.counter);
+    if(this.props.counter =="error")
     {
       return (
    

@@ -22,9 +22,17 @@ habdleFilter=(cid)=>{
 
   if(cid!="")
   {
-    let counnter = this.state.counterr.filter(e=> e.snippet.title.toLowerCase().indexOf(cid) > -1);
-    this.setState({counterr:counnter})
-    console.log("calling data"+cid);
+    let counnter = this.state.counterr.filter(e=> e.snippet.title.toLowerCase().indexOf(cid.toLowerCase()) > -1);
+    if(counnter.length>0){
+      this.setState({counterr:counnter})
+    }else{
+      let counnter = this.state.copycounter;
+      this.setState({counterr:counnter})
+      console.log("calling data"+cid);
+    }
+
+    
+    // console.log("calling data"+cid);
   }
   else{
     let counnter = this.state.copycounter;
