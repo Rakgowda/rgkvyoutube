@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import $ from "jquery"
 import Skeleton from 'react-loading-skeleton';
+import spninner from "../images/spninner.gif"
+import "../style/sni.css"
+
 class Counter extends Component {
     
     // constructor(){
@@ -32,20 +35,28 @@ let style;
     
    
      console.log(this.props.counter);
-    if(this.props.counter =="error")
+    if(this.props.counter =="error" || this.props.counter == "empty")
     {
       return (
    
   <div>
-    <div style={style}>
-    <Skeleton width={400} height={400} />
+    <div style={style} className="card ml-10">
+    <div id="vid" className="embed-responsive-item" style={{height:"500px"}}>
+    <Skeleton style={{height:"500px"}}/>
+
     </div>
+
+   
+
+    
+  
 <div className="card-body">
 <h4 className="card-title text-dark"><Skeleton count={1} /></h4>
 <br/>
 <p className="card-text text-dark"><Skeleton count={1} /></p>
 <br/>
-<a className="btn btn-danger"target='_blank'>YouTube link</a>
+<a target='_blank'><Skeleton count={1} /></a>
+</div>
 </div>
 </div>
       )
@@ -61,7 +72,10 @@ let style;
 
       <React.Fragment>
        <div className="card ml-10" style={style}>
-       <iframe id="vid" src={r || <Skeleton />} className="embed-responsive-item" style={{height:"500px"}} allowFullScreen></iframe>
+       
+        
+         <iframe id="vid" src={r} className="embed-responsive-item" style={{height:"500px"}} allowFullScreen></iframe>
+        
   <div className="card-body">
     <h4 className="card-title text-dark">RGKV TECH CHANNEL <span className="text text-primary">#kannada</span></h4>
     <p className="card-text text-dark">{this.props.counter.snippet.title}</p>

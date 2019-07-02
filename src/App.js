@@ -12,7 +12,7 @@ import $ from 'jquery'
 import axios from "axios"
 class App extends Component {
   state = {  
-    counterr:[],
+    counterr:["empty"],
     subcriber:0,
     copycounter:[]
 }
