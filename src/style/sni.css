@@ -1,3 +1,11 @@
-.snip{
-    background-image: url("../images/spninner.gif") center center no-repeat;
+.navbar-brand{
+  cursor:pointer;
 }
+.na{
+ 
+  height:100vh;
+  transition:0s;
+  
+  
+}
+

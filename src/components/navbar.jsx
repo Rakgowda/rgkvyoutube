@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import "../../node_modules/jquery/dist/jquery.min.js";
 import "../../node_modules/bootstrap/dist/js/bootstrap.bundle.min";
+import "../style/sni.css"
+import $ from 'jquery'
+
 
 class Navbar extends Component {
    
@@ -39,19 +42,29 @@ class Navbar extends Component {
 
 
     render() { 
+      let forstyle={
+  display:"flex",
+  "justify-content": "center",
+  "align-items": "center"
+}
       let style;
     if (window.innerWidth > 600) {
       style = {
-        fontSize:"20px" 
+        fontSize:"20px"
  
       }
     
     } else {
       style = {
-        fontSize:"11px"
+        fontSize:"11px",
+        cursor:"pointer"
       }
       
     }
+
+    $(".navbar-toggler").click(function(){
+    // $(".collapse").toggleClass("na");
+  });
      
         return ( 
         
@@ -63,14 +76,13 @@ class Navbar extends Component {
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto navbar-side" >
       {/* <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li> */}
-      
     </ul>
-    <form class="form-inline my-2 my-lg-0" onSubmit={this.handleSubmit}>
+    <form class="form-inline my-2 my-lg-0" onSubmit={this.handleSubmit} style={forstyle}>
     <input className="form-control mr-sm-2" type="text" refs="s" placeholder="Search" aria-label="Search" onChange={this.handleChange}  />
               <button className="btn btn-outline-danger my-2 my-sm-0" value="Submit" type="submit">Search</button>
               </form>
