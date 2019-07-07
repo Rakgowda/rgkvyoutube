@@ -9,7 +9,7 @@ class Counters extends Component {
         return ( 
         
         <div>
-            <br/><br/>
+            
             {this.props.counterr.map(e=><Counter key={e.id} counter={e}>
            
             </Counter>)}

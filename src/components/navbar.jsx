@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "../../node_modules/jquery/dist/jquery.min.js";
 import "../../node_modules/bootstrap/dist/js/bootstrap.bundle.min";
-import "../style/sni.css"
+import "../assets/style/sni.css"
 import $ from 'jquery'
 
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import $ from "jquery"
 import Skeleton from 'react-loading-skeleton';
-import spninner from "../images/spninner.gif"
+
 
 class Counter extends Component {
     
@@ -42,6 +42,7 @@ let style;
     <div style={style} className="card ml-10">
     <div id="vid" className="embed-responsive-item" style={{height:"500px"}}>
     <Skeleton style={{height:"500px"}}/>
+    <div class="spinner-border text-primary position-relative" style={{top:"50%",left:"50%"}}></div>
 
     </div>
 
