@@ -94,7 +94,9 @@ render() {
   return ( 
     <React.Fragment>
       <Navbar subcriber={this.state.subcriber} counterr={this.state.counterr} searchdata={this.habdleFilter}></Navbar>
-      <Counters counterr={this.state.counterr}></Counters>
+      <br></br>
+<br></br>
+<Counters counterr={this.state.counterr}></Counters>
       <Footer></Footer>
     </React.Fragment>
   );
