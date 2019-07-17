@@ -25,7 +25,7 @@ class Author extends Component {
                         <div class="al-author-content">
                             <h3 class="text-center mb-3">RAKSHITH GOWDA K V</h3>
                             <p class="text-center mb-0">
-                               Rakshith gowda is a <span style={{"font-weight":"10px"}}>Web Developer</span> and <span style={{"font-weight":"10px"}}>Youtuber</span>. He was always excited to share tech knowledge with others.
+                               Rakshith gowda is a <span style={{"font-weight":"10px"}}>Web Developer</span> and <span style={{"font-weight":"10px"}}>Youtuber</span>. He is always excited to share tech knowledge with others.
                                 </p>
                         </div>
                     </div>
