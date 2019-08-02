@@ -7,6 +7,7 @@ class Counters extends Component {
     render() { 
         console.log(this.props.counterr);
         return ( 
+<br>
         
         <div>
             
