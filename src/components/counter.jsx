@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import $ from "jquery"
-import Skeleton from 'react-loading-skeleton';
 
+import Skeleton from 'react-loading-skeleton';
+import axios from "axios"
 
 class Counter extends Component {
     
@@ -20,7 +20,7 @@ let style;
         "margin-bottom": "10px" 
  
       }
-      let sy=500
+      
     } else {
        style = {
         width:"400px",
@@ -29,12 +29,12 @@ let style;
         float: "none", 
         "margin-bottom": "10px" 
       }
-      let sy=100
+      
     }
     
    
      console.log(this.props.counter);
-    if(this.props.counter =="error" || this.props.counter == "empty")
+    if(this.props.counter ==="error" || this.props.counter === "empty")
     {
       return (
    
@@ -66,7 +66,12 @@ let style;
     console.log(lin.resourceId.videoId);
     const r = "https://www.youtube.com/embed/"+lin.resourceId.videoId+"?rel=0";
     const rr = "https://www.youtube.com/watch/"+lin.resourceId.videoId;
-
+    const view =""
+    axios.get("https://www.googleapis.com/youtube/v3/videos?part=statistics&id="+lin.resourceId.videoId+"&key=AIzaSyDqnf8FL1kPg2MNRPySnf54fJaU-8W_zz0")
+    .then((res)=>{
+      console.log(res.data.items[0].statistics.viewCount);
+       this.view = res.data.items[0].statistics.viewCount
+    })
 
     return (
 
@@ -79,9 +84,9 @@ let style;
          </iframe>
         
   <div className="card-body">
-    <h4 className="card-title text-dark">RGKV TECH CHANNEL <span className="text text-primary">#kannada</span></h4>
-    <p className="card-text text-dark">{this.props.counter.snippet.title}</p>
-    <a href={rr} className="btn btn-danger"target='_blank'>YouTube link</a>
+    <h4 className="card-title text-dark">RGKV TECH CHANNEL        <span style={{fontSize:"20px",color:"red"}}>{this.view}<i class="fas fa-eye" style={{}}></i></span></h4>
+    <p className="card-text text-dark">{this.props.counter.snippet.title} </p>
+    <a href={rr} className="btn btn-danger">YouTube link</a>
   </div>
 </div>
       </React.Fragment>
