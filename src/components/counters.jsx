@@ -8,6 +8,7 @@ class Counters extends Component {
         console.log(this.props.counterr);
         return ( 
 <br>
+    <br>
         
         <div>
             
