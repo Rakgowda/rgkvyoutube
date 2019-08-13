@@ -3,7 +3,7 @@ import './App.css';
 import Counters from './components/counters'
 import Navbar from "./components/navbar"
 import Footer from "./components/footer"
-
+import Auther from "./components/author"
 import React, { Component } from 'react';
 
 
@@ -94,6 +94,7 @@ render() {
     <React.Fragment>
       <Navbar subcriber={this.state.subcriber} counterr={this.state.counterr} searchdata={this.habdleFilter}></Navbar>
       <Counters counterr={this.state.counterr}></Counters>
+    <Auther></Auther>
       <Footer></Footer>
     </React.Fragment>
   );
