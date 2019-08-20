@@ -1,13 +1,16 @@
 
+import logo from './logo.svg';
 import './App.css';
 import Counters from './components/counters'
 import Navbar from "./components/navbar"
 import Footer from "./components/footer"
 import Auther from "./components/author"
+
+
 import React, { Component } from 'react';
 
 
-
+import $ from 'jquery'
 import axios from "axios"
 class App extends Component {
   state = {  
@@ -63,7 +66,7 @@ componentDidMount(){
   axios.get("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=UUnw-TdFO6KgTWTxBatPWDMw&key=AIzaSyDgrPBx3AMpJFPKlx5MkmkkLw7OaIBcrQU")
   .then((res)=>{
     console.log(res.data.items);
-    const counterr = res.data.items 
+    const counterr = res.data.items
     this.setState({counterr:[...counterr]})
     this.setState({copycounter:[...counterr]})
 
@@ -93,9 +96,10 @@ render() {
   return ( 
     <React.Fragment>
       <Navbar subcriber={this.state.subcriber} counterr={this.state.counterr} searchdata={this.habdleFilter}></Navbar>
-    <br><br><br>
-      <Counters counterr={this.state.counterr}></Counters>
-    <Auther></Auther>
+      <br></br>
+<br></br>
+<Counters counterr={this.state.counterr}></Counters>
+<Auther></Auther>
       <Footer></Footer>
     </React.Fragment>
   );
