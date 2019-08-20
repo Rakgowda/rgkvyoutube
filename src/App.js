@@ -60,7 +60,7 @@ reset=()=>{
 
 componentDidMount(){
 
-  axios.get("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=UUnw-TdFO6KgTWTxBatPWDMw&key=AIzaSyDqnf8FL1kPg2MNRPySnf54fJaU-8W_zz0")
+  axios.get("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=UUnw-TdFO6KgTWTxBatPWDMw&key=AIzaSyDgrPBx3AMpJFPKlx5MkmkkLw7OaIBcrQU")
   .then((res)=>{
     console.log(res.data.items);
     const counterr = res.data.items 
@@ -68,7 +68,7 @@ componentDidMount(){
     this.setState({copycounter:[...counterr]})
 
     console.log(this.state);
-    axios.get("https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UCnw-TdFO6KgTWTxBatPWDMw&key=AIzaSyDqnf8FL1kPg2MNRPySnf54fJaU-8W_zz0")
+    axios.get("https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UCnw-TdFO6KgTWTxBatPWDMw&key=AIzaSyDgrPBx3AMpJFPKlx5MkmkkLw7OaIBcrQU")
     .then((res)=>{
       console.log(res.data.items[0].statistics.subscriberCount);
       const subcriber = res.data.items[0].statistics.subscriberCount;
